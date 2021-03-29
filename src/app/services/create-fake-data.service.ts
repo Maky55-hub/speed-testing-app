@@ -4,6 +4,7 @@ import { delay } from 'rxjs/operators';
 import * as faker from 'faker/locale/en'
 
 export interface Contact {
+  id: number;
   firstName?: string;
   lastName?: string;
   email?: string;
@@ -29,6 +30,7 @@ export class CreateFakeDataService {
     const contactsArray: Array<Contact> = [];
     for (let i = 0; i < randomContacts; i++) {
       contactsArray.push({
+        id: faker.datatype.number(),
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         email: faker.internet.email(),
@@ -39,6 +41,24 @@ export class CreateFakeDataService {
       } as Contact)
     }
     return contactsArray;
+  }
+
+  public addNewContact(name: string): void {
+    this.contacts.push({
+      id: faker.datatype.number(),
+      firstName: name,
+      lastName: faker.name.lastName(),
+      email: faker.internet.email(),
+      dateOfBirth: faker.date.past(),
+      address: faker.address.streetAddress(),
+      city: faker.address.cityName(),
+      salary: faker.datatype.number(100)
+    } as Contact)
+  }
+
+  public generateNewList(): Observable<Array<Contact>> {
+    this.contacts = this._generateRandomContacts();
+    return this.getRandomContacts();
   }
 
   public getRandomContacts(): Observable<Array<Contact>> {
