@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ContactListComponent } from './components/pages/contact-list/contact-list.component';
 import { ContactDetailComponent } from './components/pages/contact-detail/contact-detail.component';
+import { ContactResolverService } from './services/contact-resolver.service';
+import { resolve } from 'path';
 
 
 const routes: Routes = [
@@ -11,7 +13,10 @@ const routes: Routes = [
   },
   {
     path: 'contact/:id',
-    component: ContactDetailComponent
+    component: ContactDetailComponent,
+    resolve: {
+      contact: ContactResolverService
+    }
   }
 ];
 
