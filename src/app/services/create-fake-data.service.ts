@@ -19,10 +19,14 @@ export interface Contact {
 })
 export class CreateFakeDataService {
 
-  private contacts: Array<Contact>;
+  private _contacts: Array<Contact>;
+
+  public get contacts(): Array<Contact> {
+    return this._contacts;
+  }
 
   constructor() { 
-    this.contacts = this._generateRandomContacts();
+    this._contacts = this._generateRandomContacts();
   }
 
   private _generateRandomContacts(): Array<Contact> {
@@ -44,7 +48,7 @@ export class CreateFakeDataService {
   }
 
   public addNewContact(name: string): void {
-    this.contacts.push({
+    this._contacts.push({
       id: faker.datatype.number(),
       firstName: name,
       lastName: faker.name.lastName(),
@@ -57,11 +61,11 @@ export class CreateFakeDataService {
   }
 
   public generateNewList(): Observable<Array<Contact>> {
-    this.contacts = this._generateRandomContacts();
+    this._contacts = this._generateRandomContacts();
     return this.getRandomContacts();
   }
 
   public getRandomContacts(): Observable<Array<Contact>> {
-    return of(this.contacts).pipe(delay(2000));
+    return of(this._contacts).pipe(delay(2000));
   }
 }
