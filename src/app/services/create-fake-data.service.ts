@@ -33,7 +33,7 @@ export class CreateFakeDataService {
     const randomContacts = faker.datatype.number(50);
     const contactsArray: Array<Contact> = [];
     for (let i = 0; i < randomContacts; i++) {
-      contactsArray.push({
+      contactsArray.unshift({
         id: faker.datatype.number(),
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),

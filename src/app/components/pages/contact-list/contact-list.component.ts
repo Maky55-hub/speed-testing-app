@@ -21,6 +21,7 @@ export class ContactListComponent implements OnInit {
 
   public onAddEmployee(): void {
     this._createFakeDataService.addNewContact(this.nameInput);
+    this.nameInput = null;
     this._getContacts();
   }
 
