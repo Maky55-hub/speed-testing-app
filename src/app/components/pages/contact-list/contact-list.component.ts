@@ -10,12 +10,18 @@ import { List } from 'immutable';
 export class ContactListComponent implements OnInit {
 
   public contacts: List<Contact>;
+  public nameInput: string;
 
   constructor(private _createFakeDataService: CreateFakeDataService) { }
 
   private async _getContacts(): Promise<void> {
     const contacts = await this._createFakeDataService.getRandomContacts().toPromise();
     this.contacts = List(contacts);
+  }
+
+  public onAddEmployee(): void {
+    this._createFakeDataService.addNewContact(this.nameInput);
+    this._getContacts();
   }
 
   ngOnInit() {

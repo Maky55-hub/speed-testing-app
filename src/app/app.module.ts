@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { 
+import {
   MatSliderModule,
   MatToolbarModule,
   MatAutocompleteModule,
@@ -16,12 +17,14 @@ import {
   MatInputModule,
   MatListModule,
   MatRadioModule,
-  MatIconModule
+  MatIconModule,
+  MatChipsModule
 } from '@angular/material';
 import { ContactListComponent } from './components/pages/contact-list/contact-list.component';
 import { ContactDetailComponent } from './components/pages/contact-detail/contact-detail.component';
 import { NameInputComponentComponent } from './components/partials/name-input-component/name-input-component.component';
 import { EmployeeListComponentComponent } from './components/partials/employee-list-component/employee-list-component.component';
+import { CalculatePipe } from './pipes/calculate.pipe';
 
 @NgModule({
   declarations: [
@@ -29,12 +32,14 @@ import { EmployeeListComponentComponent } from './components/partials/employee-l
     ContactListComponent,
     ContactDetailComponent,
     NameInputComponentComponent,
-    EmployeeListComponentComponent
+    EmployeeListComponentComponent,
+    CalculatePipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
 
     // Material Imports
     MatSliderModule,
@@ -47,7 +52,8 @@ import { EmployeeListComponentComponent } from './components/partials/employee-l
     MatInputModule,
     MatListModule,
     MatRadioModule,
-    MatIconModule
+    MatIconModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

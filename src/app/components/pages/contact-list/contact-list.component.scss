@@ -1,0 +1,9 @@
+::ng-deep .contact-list {
+  margin: auto;
+  &__input-container {
+    text-align: center;
+    .mat-form-field {
+      width: 90%;
+    }
+  }
+}

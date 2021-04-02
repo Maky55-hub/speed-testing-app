@@ -1,0 +1,10 @@
+<div class="contact-list">
+  <div class="contact-list__input-container">
+    <mat-form-field>
+      <mat-label>Employee name</mat-label>
+      <input matInput placeholder="input employee name here" [(ngModel)]="nameInput" #inputRef="ngModel" required>
+    </mat-form-field>
+    <button mat-stroked-button color="primary" (click)="onAddEmployee()" [disabled]="!inputRef.valid">Add</button>
+  </div>
+  <app-employee-list-component [contacts]="contacts"></app-employee-list-component>
+</div>

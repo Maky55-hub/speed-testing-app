@@ -1,10 +1,13 @@
 <div class="employee-list">
     <mat-list class="employee-list__list">
-        <mat-list-item *ngFor="let contact of contacts">
+        <mat-list-item class="list-item" *ngFor="let contact of contacts">
             <mat-icon matListIcon>face</mat-icon>
+            <span class="employee-name">{{ contact.firstName }}</span>
             <span class="content-container">
-                <span>{{ contact.firstName }}</span>
-                <mat-icon>delete</mat-icon>
+              <mat-chip-list>
+                <mat-chip color="primary" selected>{{ contact.salary | calculate:bindedCalculateSalary }}</mat-chip>
+              </mat-chip-list>
+              <mat-icon>delete</mat-icon>
             </span>
         </mat-list-item>
     </mat-list>

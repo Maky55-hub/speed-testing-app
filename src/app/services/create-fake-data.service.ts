@@ -25,7 +25,7 @@ export class CreateFakeDataService {
     return this._contacts;
   }
 
-  constructor() { 
+  constructor() {
     this._contacts = this._generateRandomContacts();
   }
 
@@ -42,7 +42,7 @@ export class CreateFakeDataService {
         address: faker.address.streetAddress(),
         city: faker.address.cityName(),
         salary: faker.datatype.number(100)
-      } as Contact)
+      } as Contact);
     }
     return contactsArray;
   }
@@ -57,7 +57,7 @@ export class CreateFakeDataService {
       address: faker.address.streetAddress(),
       city: faker.address.cityName(),
       salary: faker.datatype.number(100)
-    } as Contact)
+    } as Contact);
   }
 
   public generateNewList(): Observable<Array<Contact>> {
